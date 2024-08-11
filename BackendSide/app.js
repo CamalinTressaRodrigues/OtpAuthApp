@@ -18,7 +18,7 @@ const otpRoutes = require('./routes/OtpRoute');
 app.use('/otp', otpRoutes);
 // cors error solveing during deployment
 app.use(cors({
-    origin: ['otp-auth-app-backend.vercel.app'],
+    origin: ['https://otp-auth-app-client.vercel.app/'],
     credentials: true,
     methods: ['POST', 'GET', 'PATCH', 'DELETE']
 }));
