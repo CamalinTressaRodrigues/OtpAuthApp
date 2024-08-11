@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000/otp', 
+  baseURL: 'otp-auth-app-backend.vercel.app/otp', 
   timeout: 10000, 
 });
 

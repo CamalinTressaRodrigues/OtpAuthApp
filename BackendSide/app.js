@@ -16,7 +16,21 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const otpRoutes = require('./routes/OtpRoute');
 
 app.use('/otp', otpRoutes);
+// cors error solveing during deployment
+app.use(cors({
+    origin: ['otp-auth-app-backend.vercel.app'],
+    credentials: true,
+    methods: ['POST', 'GET', 'PATCH', 'DELETE']
+}));
 
+
+//deployment
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// Anything that doesn't match the above, send back index.html
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 //server on port 3000
 app.listen(process.env.PORT, () => {
