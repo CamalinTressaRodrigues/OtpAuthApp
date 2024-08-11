@@ -9,7 +9,7 @@ const SendOtpForm = ({ onOtpSent }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axiosInstance.post('/sendOtp', { email });
+      const response = await axiosInstance.post('/otp/sendOtp', { email });
       setMessage(response.data.message);
        if (response.status === 200) {
          console.log('OTP sent, calling onOtpSent');

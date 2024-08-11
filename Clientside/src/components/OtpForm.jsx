@@ -11,7 +11,7 @@ const VerifyOtpForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axiosInstance.post('/checkOtp', { email, otp });
+      const response = await axiosInstance.post('/otp/checkOtp', { email, otp });
       setMessage(response.data.message);
       if (response.status === 200) {
         navigate('/home');
